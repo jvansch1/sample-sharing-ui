@@ -1,7 +1,7 @@
 var path = require("path");
 
 module.exports = {
-  entry: "./src/app.tsx",
+  entry: "./src/index.tsx",
 
   module: {
     rules: [
@@ -10,7 +10,7 @@ module.exports = {
         include: [path.resolve(__dirname, "src")],
         loader: "babel-loader",
         options: {
-          presets: ["env", "react"],
+          presets: ["env", "react"]
         },
         test: /\.(js|jsx)$/,
       },
@@ -38,5 +38,16 @@ module.exports = {
 
   resolve: {
     extensions: [".js", ".ts", ".tsx", ".json"]
+  },
+
+  devServer: {
+    compress: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    historyApiFallback: true,
+    hot: true,
+    hotOnly: true,
+    contentBase: './public'
   },
 };

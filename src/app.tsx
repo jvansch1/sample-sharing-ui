@@ -1,5 +1,7 @@
 import * as React from 'react';
 import './app.css';
+import { hot } from "react-hot-loader";
+import Root from "./root";
 
 class App extends React.Component {
   constructor(props: any) {
@@ -9,10 +11,10 @@ class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        {this.props.children}
+        <Root />
       </div>
     );
   }
 }
 
-export default App;
+export default hot(module)(App);
